@@ -1,0 +1,13 @@
+# 爬虫：通过编写程序来获取到互联网上的资源
+# 百度：
+# 需求： 用程序模拟浏览器，输入一个网址，从该网址中获取到资源或者内容
+# python搞定以上需求特别简单
+from urllib.request import urlopen      # url可以认为是网址的一个库，跟网址相关的一个库，从这个库里面找到ruquest这个库，request这个库里面有个东西叫urlopen,ruquest的意思是请求.什么叫请求，请求就是准备好一个网址敲回车就是请求
+
+url = "http://www.baidu.com"
+resp = urlopen(url)     # 打开一个网址得到一个响应
+
+
+with open('mybaidu.html',mode="w") as f:
+    f.write(resp.read().decode("utf-8"))
+print('over!')
